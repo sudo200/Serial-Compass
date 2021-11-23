@@ -4,7 +4,7 @@ A simple program written in Java for emulating a compass through an Arduino conn
 ## Usage
 1. Download [here](https://github.com/sudo200/Serial-Compass/releases/latest).
 2. If you don't already have Java 8, install it.
-3. open a terminal in the directory, where the program is located, and type `java -jar <filename-wit-extention> <serial-port>`.
+3. open a terminal in the directory, where the program is located, and type `java -jar <filename-with-extention> <serial-port>`.
 
 To get the serial port, take a look onto the bottom right corner of the Arduino IDE.
 
