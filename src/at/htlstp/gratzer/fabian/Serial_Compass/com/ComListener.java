@@ -13,7 +13,7 @@ public class ComListener {
         this.port.openPort();
     }
 
-    public void addDataListener(Consumer<SerialPortEvent> function) {
+    public void addDataListener(Consumer<byte[]> function) {
         port.addDataListener(new SerialPortDataListener() {
             @Override
             public int getListeningEvents() {
@@ -25,7 +25,9 @@ public class ComListener {
                 if(e.getEventType() != SerialPort.LISTENING_EVENT_DATA_AVAILABLE)
                     return;
 
-                function.accept(e);
+                byte[] data = new byte[port.bytesAvailable()];
+                port.readBytes(data, port.bytesAvailable());
+                function.accept(data);
             }
         });
     }

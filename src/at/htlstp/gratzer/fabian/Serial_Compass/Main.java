@@ -3,9 +3,9 @@ package at.htlstp.gratzer.fabian.Serial_Compass;
 import at.htlstp.gratzer.fabian.Serial_Compass.com.ComListener;
 
 import javax.swing.*;
-import java.util.Arrays;
 
 public class Main extends JFrame {
+
     private Main() {
         super("Serial-Compass");
         setSize(128, 64);
@@ -23,8 +23,6 @@ public class Main extends JFrame {
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
-        listener.addDataListener(e -> {
-            System.out.println(Arrays.toString(e.getReceivedData()));
-        });
+        listener.addDataListener(bytes -> panel.setAngle((short)(360*(bytes[0]/127.0))));
     }
 }
